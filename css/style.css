@@ -280,7 +280,10 @@ main .video-player {
     position: relative;
 }
 
-.video-content video { width: 700px; height: auto; }
+.video-content video { 
+    width: 700px; 
+    height: auto; 
+}
 
 .video-controls {
     position: absolute;
@@ -337,40 +340,69 @@ main .video-player {
 
 /* Специфичные стили для кнопок и индикатора времени */
 .video-controls .playpause::before {
-    content: '\f04b'; /* Play */
-    font-family: 'Font Awesome 5 Free';
-    font-size: 2rem;
-    color: lightgreen;
-}
-
-.video-controls .playpause[data-state="paused"]::before {
-    content: "\f04b"; /* Play */
+    content: "\f04b"; /* Play icon */
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    font-size: 24px;
-    color: lightgreen; 
-}   
-
-.video-controls .mute::before {
-    content: '\f6a9'; /* Mute */
-    font-family: 'Font Awesome 6 Free';
-    font-size: 24px;
+    font-size: 2rem;
     color: green;
 }
 
-.video-controls .mute[data-mute="unmuted"]::before {
-    content: '\f6a9'; /* Unmute */
-    font-size: 24px;
+.video-player[data-state="paused"] .playpause::before {
+    content: "\f04b"; /* Play */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: green; 
+}   
+
+.video-player[data-state="played"] .playpause::before {
+    content: "\f04c"; /* Pause icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: green; 
+} 
+
+.video-controls .mute::before {
+    content: "\f028"; /* Mute */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: green;
+}
+
+.video-player[data-mute="muted"] .mute::before {
+    content: "\f6a9"; /* Mute icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
     color: green;
 }
 
 .video-controls .fullscreen::before {
-    content: '\f065'; /* Fullscreen */
-    font-family: 'Font Awesome 6 Free', sans-serif;
-    font-size: 24px;
+    content: '\f065'; /* Fullscreen icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
     color: green;
 }
-  
+
+.video-player.fullscreen .fullscreen::before {
+    content: '\f066'; /* Exit fullscreen icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: green;
+}
+
+/* Стили для полноэкранного режима */
+.video-player.fullscreen {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 
 #about .name {
     position: absolute;
